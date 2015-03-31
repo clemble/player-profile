@@ -1,0 +1,174 @@
+shippable/**
+logs/**
+
+target/
+pom.xml.tag
+pom.xml.releaseBackup
+pom.xml.versionsBackup
+pom.xml.next
+release.properties
+
+### Maven template
+target/
+pom.xml.tag
+pom.xml.releaseBackup
+pom.xml.versionsBackup
+pom.xml.next
+release.properties
+dependency-reduced-pom.xml
+
+
+### JetBrains template
+# Covers JetBrains IDEs: IntelliJ, RubyMine, PhpStorm, AppCode, PyCharm
+
+*.iml
+
+## Directory-based project format:
+.idea/
+# if you remove the above rule, at least ignore the following:
+
+# User-specific stuff:
+# .idea/workspace.xml
+# .idea/tasks.xml
+# .idea/dictionaries
+
+# Sensitive or high-churn files:
+# .idea/dataSources.ids
+# .idea/dataSources.xml
+# .idea/sqlDataSources.xml
+# .idea/dynamic.xml
+# .idea/uiDesigner.xml
+
+# Gradle:
+# .idea/gradle.xml
+# .idea/libraries
+
+# Mongo Explorer plugin:
+# .idea/mongoSettings.xml
+
+## File-based project format:
+*.ipr
+*.iws
+
+## Plugin-specific files:
+
+# IntelliJ
+out/
+
+# mpeltonen/sbt-idea plugin
+.idea_modules/
+
+# JIRA plugin
+atlassian-ide-plugin.xml
+
+# Crashlytics plugin (for Android Studio and IntelliJ)
+com_crashlytics_export_strings.xml
+crashlytics.properties
+crashlytics-build.properties
+
+
+### Java template
+*.class
+
+# Mobile Tools for Java (J2ME)
+.mtj.tmp/
+
+# Package Files #
+*.jar
+*.war
+*.ear
+
+# virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
+hs_err_pid*
+
+
+
+.idea/libraries/Maven__aopalliance_aopalliance_1_0.xml
+
+.idea/libraries/Maven__ch_qos_logback_logback_classic_1_1_2.xml
+
+.idea/libraries/Maven__ch_qos_logback_logback_core_1_1_2.xml
+
+.idea/libraries/Maven__com_clemble_test_common_0_1_4_SNAPSHOT.xml
+
+.idea/libraries/Maven__com_clemble_test_object_generator_0_1_5.xml
+
+.idea/libraries/Maven__com_couchbase_client_couchbase_client_1_4_8.xml
+
+.idea/libraries/Maven__com_fasterxml_classmate_1_0_0.xml
+
+.idea/libraries/Maven__com_fasterxml_jackson_core_jackson_annotations_2_5_1.xml
+
+.idea/libraries/Maven__com_fasterxml_jackson_core_jackson_core_2_5_1.xml
+
+.idea/libraries/Maven__com_fasterxml_jackson_core_jackson_databind_2_5_1.xml
+
+.idea/libraries/Maven__stax_stax_api_1_0_1.xml
+
+.idea/libraries/Maven__org_syslog4j_syslog4j_0_9_30.xml
+
+.idea/libraries/Maven__org_springframework_social_spring_social_core_1_1_0_RELEASE.xml
+
+.idea/libraries/Maven__com_fasterxml_jackson_datatype_jackson_datatype_joda_2_5_1.xml
+
+.idea/libraries/Maven__com_fasterxml_jackson_module_jackson_module_jsonSchema_2_5_1.xml
+
+.idea/libraries/Maven__com_google_code_findbugs_annotations_2_0_1.xml
+
+.idea/libraries/Maven__com_google_guava_guava_18_0.xml
+
+.idea/libraries/Maven__com_papertrailapp_logback_syslog4j_1_0_0.xml
+
+.idea/libraries/Maven__com_rabbitmq_amqp_client_3_4_4.xml
+
+.idea/libraries/Maven__com_thetransactioncompany_cors_filter_2_3.xml
+
+.idea/libraries/Maven__com_thetransactioncompany_java_property_utils_1_9_1.xml
+
+.idea/libraries/Maven__commons_codec_commons_codec_1_10.xml
+
+.idea/libraries/Maven__javax_el_javax_el_api_3_0_0.xml
+
+.idea/libraries/Maven__javax_validation_validation_api_1_1_0_Final.xml
+
+.idea/libraries/Maven__junit_junit_4_12.xml
+
+.idea/libraries/Maven__net_spy_spymemcached_2_11_6.xml
+
+.idea/libraries/Maven__org_apache_commons_commons_lang3_3_3_2.xml
+
+.idea/libraries/Maven__org_apache_commons_commons_math3_3_0.xml
+
+.idea/libraries/Maven__org_apache_httpcomponents_httpcore_4_4.xml
+
+.idea/libraries/Maven__org_apache_httpcomponents_httpcore_nio_4_3.xml
+
+.idea/libraries/Maven__org_codehaus_jettison_jettison_1_1.xml
+
+.idea/libraries/Maven__org_glassfish_web_javax_el_2_2_6.xml
+
+.idea/libraries/Maven__org_hamcrest_hamcrest_core_1_3.xml
+
+.idea/libraries/Maven__org_hibernate_hibernate_validator_5_1_3_Final.xml
+
+.idea/libraries/Maven__org_hibernate_javax_persistence_hibernate_jpa_2_1_api_1_0_0_Final.xml
+
+.idea/libraries/Maven__org_jboss_logging_jboss_logging_3_1_3_GA.xml
+
+.idea/libraries/Maven__org_mongodb_mongo_java_driver_2_12_5.xml
+
+.idea/libraries/Maven__org_reflections_reflections_0_9_9.xml
+
+.idea/libraries/Maven__org_slf4j_jcl_over_slf4j_1_7_10.xml
+
+.idea/libraries/Maven__org_slf4j_slf4j_api_1_7_10.xml
+
+.idea/libraries/Maven__org_springframework_amqp_spring_amqp_1_4_3_RELEASE.xml
+
+.idea/libraries/Maven__org_springframework_amqp_spring_rabbit_1_4_3_RELEASE.xml
+
+.idea/libraries/Maven__org_springframework_data_spring_data_commons_1_9_2_RELEASE.xml
+
+.idea/libraries/Maven__org_springframework_data_spring_data_mongodb_1_6_2_RELEASE.xml
+
+.idea/libraries/Maven__org_springframework_retry_spring_retry_1_1_2_RELEASE.xml
