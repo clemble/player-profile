@@ -4,7 +4,6 @@ machine:
   services:
     - docker
     - rabbitmq-server
-    - neo4j
 
 
 deployment:
