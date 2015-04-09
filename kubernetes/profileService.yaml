@@ -1,0 +1,11 @@
+id: profile
+kind: Service
+apiVersion: v1beta1
+selector:
+  name: profile
+containerPort: 10012
+protocol: TCP
+port: 80
+publicIPs:
+  - "104.155.68.75"
+createExternalLoadBalancer: true

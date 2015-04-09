@@ -1,0 +1,25 @@
+kind: ReplicationController
+id: profile-controller
+apiVersion: v1beta1
+desiredState:
+  replicas: 1
+  replicaSelector: 
+    name: profile
+    version: v1
+  podTemplate:
+    labels:
+      name : profile
+      version: v1
+    desiredState:
+      manifest:
+        containers:
+          - name: profile
+            image: clemble/profile:latest
+            imagePullPolicy : PullAlways
+            ports:
+              - containerPort: 10012
+                hostPort: 10012
+                protocol: TCP
+            labels:
+              name : profile
+              version: v1
