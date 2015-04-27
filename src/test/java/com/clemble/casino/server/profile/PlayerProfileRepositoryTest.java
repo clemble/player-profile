@@ -54,8 +54,11 @@ public class PlayerProfileRepositoryTest {
 
     @Test
     public void testSaveMultiple() {
-        PlayerProfile playerA = new PlayerProfile().setFirstName("User A").setLastName("Userius")
-                .setPlayer(RandomStringUtils.random(5));
+        PlayerProfile playerA = new PlayerProfile().
+            setFirstName("User A").
+            setLastName("Userius").
+            setPlayer(RandomStringUtils.random(5)).
+            setTimezone("UTC");
         PlayerProfile savedPlayerA = playerProfileRepository.save(playerA);
         playerA.setPlayer(savedPlayerA.getPlayer());
         Assert.assertNotNull(playerA.getPlayer());
@@ -64,8 +67,11 @@ public class PlayerProfileRepositoryTest {
         Assert.assertEquals(foundPlayerA, playerA);
         Assert.assertEquals(foundPlayerA, savedPlayerA);
 
-        PlayerProfile playerB = new PlayerProfile().setFirstName("User B").setLastName("Userius")
-                .setPlayer(RandomStringUtils.random(5));
+        PlayerProfile playerB = new PlayerProfile().
+            setFirstName("User B").
+            setLastName("Userius").
+            setPlayer(RandomStringUtils.random(5)).
+            setTimezone("UTC");
         PlayerProfile savedPlayerB = playerProfileRepository.save(playerB);
         playerB.setPlayer(savedPlayerB.getPlayer());
         Assert.assertNotSame(savedPlayerA.getPlayer(), savedPlayerB.getPlayer());
