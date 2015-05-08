@@ -17,11 +17,11 @@ import static com.clemble.casino.player.PlayerWebMapping.*;
  * Created by mavarazy on 7/26/14.
  */
 @RestController
-public class PlayerImageServiceController implements PlayerImageService {
+public class PlayerImageController implements PlayerImageService {
 
     final private PlayerImageRedirectRepository imageRedirectRepository;
 
-    public PlayerImageServiceController(PlayerImageRedirectRepository imageRedirectRepository) {
+    public PlayerImageController(PlayerImageRedirectRepository imageRedirectRepository) {
         this.imageRedirectRepository = imageRedirectRepository;
     }
 
