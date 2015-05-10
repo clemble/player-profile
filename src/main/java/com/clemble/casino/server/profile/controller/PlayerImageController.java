@@ -1,7 +1,7 @@
 package com.clemble.casino.server.profile.controller;
 
 import com.clemble.casino.player.service.PlayerImageService;
-import com.clemble.casino.server.ExternalController;
+import com.clemble.casino.server.ServerController;
 import com.clemble.casino.server.profile.PlayerImageRedirect;
 import com.clemble.casino.server.profile.repository.PlayerImageRedirectRepository;
 import org.springframework.http.HttpStatus;
@@ -18,7 +18,7 @@ import static com.clemble.casino.player.PlayerWebMapping.*;
  * Created by mavarazy on 7/26/14.
  */
 @RestController
-public class PlayerImageController implements PlayerImageService, ExternalController {
+public class PlayerImageController implements PlayerImageService, ServerController {
 
     final private PlayerImageRedirectRepository imageRedirectRepository;
 

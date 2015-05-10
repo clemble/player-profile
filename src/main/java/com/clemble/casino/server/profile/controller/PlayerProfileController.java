@@ -12,12 +12,12 @@ import org.springframework.web.bind.annotation.*;
 import com.clemble.casino.error.ClembleCasinoError;
 import com.clemble.casino.error.ClembleCasinoException;
 import com.clemble.casino.player.PlayerProfile;
-import com.clemble.casino.server.ExternalController;
+import com.clemble.casino.server.ServerController;
 import com.clemble.casino.server.profile.repository.PlayerProfileRepository;
 import static com.clemble.casino.player.PlayerWebMapping.*;
 
 @RestController
-public class PlayerProfileController implements PlayerProfileService, ExternalController {
+public class PlayerProfileController implements PlayerProfileService, ServerController {
 
     // TODO need a listener, that adds ConnectionKey to PlayerProfile when connection added
 
