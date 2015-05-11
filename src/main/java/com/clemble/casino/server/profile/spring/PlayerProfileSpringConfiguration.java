@@ -2,7 +2,6 @@ package com.clemble.casino.server.profile.spring;
 
 import com.clemble.casino.server.player.notification.ServerNotificationService;
 import com.clemble.casino.server.player.notification.SystemNotificationService;
-import com.clemble.casino.server.player.notification.SystemNotificationServiceListener;
 import com.clemble.casino.server.profile.listener.*;
 import com.clemble.casino.server.profile.repository.MongoPlayerProfileRepository;
 import com.clemble.casino.server.profile.repository.PlayerImageRedirectRepository;
@@ -26,46 +25,46 @@ import org.springframework.data.mongodb.repository.support.MongoRepositoryFactor
 public class PlayerProfileSpringConfiguration implements SpringConfiguration {
 
     @Bean
-    public PlayerProfileCreationEventListener playerProfileRegistrationEventListener(PlayerProfileRepository playerRepository, SystemNotificationService notificationService, SystemNotificationServiceListener serviceListener) {
+    public PlayerProfileCreationEventListener playerProfileRegistrationEventListener(
+            PlayerProfileRepository playerRepository,
+            SystemNotificationService notificationService
+    ) {
         PlayerProfileCreationEventListener profileCreationService = new PlayerProfileCreationEventListener(playerRepository, notificationService);
-        serviceListener.subscribe(profileCreationService);
         return profileCreationService;
     }
 
     @Bean
-    public PlayerImageChangedEventListener playerImageChangedEventListener(PlayerImageRedirectRepository imageRedirectRepository, SystemNotificationServiceListener serviceListener) {
+    public PlayerImageChangedEventListener playerImageChangedEventListener(
+        PlayerImageRedirectRepository imageRedirectRepository
+    ) {
         PlayerImageChangedEventListener imageChangedEventListener = new PlayerImageChangedEventListener(imageRedirectRepository);
-        serviceListener.subscribe(imageChangedEventListener);
         return imageChangedEventListener;
     }
 
     @Bean
     public PlayerProfileSocialAddedEventListener playerProfileSocialAddedEventListener(
         PlayerProfileRepository profileRepository,
-        @Qualifier("playerNotificationService")  ServerNotificationService notificationService,
-        SystemNotificationServiceListener serviceListener) {
+        @Qualifier("playerNotificationService")  ServerNotificationService notificationService
+    ) {
         PlayerProfileSocialAddedEventListener socialAddedEventListener = new PlayerProfileSocialAddedEventListener(profileRepository, notificationService);
-        serviceListener.subscribe(socialAddedEventListener);
         return socialAddedEventListener;
     }
 
     @Bean
     public PlayerProfilePhoneVerifiedEventListener playerProfilePhoneVerifiedEventListener(
         PlayerProfileRepository profileRepository,
-        @Qualifier("playerNotificationService")  ServerNotificationService notificationService,
-        SystemNotificationServiceListener serviceListener) {
+        @Qualifier("playerNotificationService")  ServerNotificationService notificationService
+    ) {
         PlayerProfilePhoneVerifiedEventListener phoneVerifiedEventListener = new PlayerProfilePhoneVerifiedEventListener(profileRepository, notificationService);
-        serviceListener.subscribe(phoneVerifiedEventListener);
         return phoneVerifiedEventListener;
     }
 
     @Bean
     public PlayerProfileEmailVerifiedEventListener playerProfileEmailVerifiedEventListener(
         PlayerProfileRepository profileRepository,
-        @Qualifier("playerNotificationService")  ServerNotificationService notificationService,
-        SystemNotificationServiceListener serviceListener) {
+        @Qualifier("playerNotificationService")  ServerNotificationService notificationService
+    ) {
         PlayerProfileEmailVerifiedEventListener emailVerifiedEventListener = new PlayerProfileEmailVerifiedEventListener(profileRepository, notificationService);
-        serviceListener.subscribe(emailVerifiedEventListener);
         return emailVerifiedEventListener;
     }
 
