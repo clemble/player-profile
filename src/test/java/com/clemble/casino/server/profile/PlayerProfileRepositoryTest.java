@@ -7,6 +7,7 @@ import java.util.Date;
 import com.clemble.casino.server.profile.spring.PlayerProfileSpringConfiguration;
 import org.apache.commons.lang3.RandomStringUtils;
 import org.joda.time.DateTime;
+import org.joda.time.DateTimeZone;
 import org.junit.After;
 import org.junit.Assert;
 import org.junit.Before;
@@ -58,7 +59,7 @@ public class PlayerProfileRepositoryTest {
             setFirstName("User A").
             setLastName("Userius").
             setPlayer(RandomStringUtils.random(5)).
-            setTimezone("UTC");
+            setTimezone(DateTimeZone.UTC);
         PlayerProfile savedPlayerA = playerProfileRepository.save(playerA);
         playerA.setPlayer(savedPlayerA.getPlayer());
         Assert.assertNotNull(playerA.getPlayer());
@@ -71,7 +72,7 @@ public class PlayerProfileRepositoryTest {
             setFirstName("User B").
             setLastName("Userius").
             setPlayer(RandomStringUtils.random(5)).
-            setTimezone("UTC");
+            setTimezone(DateTimeZone.UTC);
         PlayerProfile savedPlayerB = playerProfileRepository.save(playerB);
         playerB.setPlayer(savedPlayerB.getPlayer());
         Assert.assertNotSame(savedPlayerA.getPlayer(), savedPlayerB.getPlayer());
