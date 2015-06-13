@@ -8,6 +8,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import java.io.IOException;
@@ -33,7 +34,8 @@ public class PlayerImageController implements PlayerImageService, ServerControll
 
     @RequestMapping(value = MY_IMAGE, method = RequestMethod.GET, produces = MediaType.IMAGE_JPEG_VALUE)
     @ResponseStatus(HttpStatus.MOVED_PERMANENTLY)
-    public void myImage(@CookieValue("player") String player, HttpServletResponse response) {
+    public void myImage(@CookieValue("player") String player,
+        HttpServletResponse response) {
         getImage(player, response);
     }
 
@@ -48,13 +50,15 @@ public class PlayerImageController implements PlayerImageService, ServerControll
         getSmallImage(player, response);
     }
 
+    @Override
     public byte[] getImage(String player) {
         throw new IllegalAccessError();
     }
 
     @RequestMapping(value = PLAYER_IMAGE, method = RequestMethod.GET)
     @ResponseStatus(HttpStatus.MOVED_PERMANENTLY)
-    public void getImage(@PathVariable("player") String player, HttpServletResponse response) {
+    public void getImage(
+        @PathVariable("player") String player, HttpServletResponse response) {
         try {
             // Step 1. Extracting player image redirect
             PlayerImageRedirect imageRedirect = imageRedirectRepository.findOne(player);

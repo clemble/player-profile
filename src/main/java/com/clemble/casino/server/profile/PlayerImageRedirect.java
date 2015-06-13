@@ -42,9 +42,8 @@ public class PlayerImageRedirect implements PlayerAware {
         PlayerImageRedirect that = (PlayerImageRedirect) o;
 
         if (!player.equals(that.player)) return false;
-        if (!redirect.equals(that.redirect)) return false;
+        return redirect.equals(that.redirect);
 
-        return true;
     }
 
     @Override
