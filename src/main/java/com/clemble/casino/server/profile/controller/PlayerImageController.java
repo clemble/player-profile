@@ -8,7 +8,6 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
 
-import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import java.io.IOException;
@@ -35,19 +34,10 @@ public class PlayerImageController implements PlayerImageService, ServerControll
     @RequestMapping(value = MY_IMAGE, method = RequestMethod.GET, produces = MediaType.IMAGE_JPEG_VALUE)
     @ResponseStatus(HttpStatus.MOVED_PERMANENTLY)
     public void myImage(@CookieValue("player") String player,
+        @RequestParam(value = "height", defaultValue = "60") int height,
+        @RequestParam(value = "width", defaultValue = "60") int width,
         HttpServletResponse response) {
-        getImage(player, response);
-    }
-
-    @Override
-    public byte[] mySmallImage() {
-        throw new IllegalAccessError();
-    }
-
-    @RequestMapping(value = MY_IMAGE_SMALL, method = RequestMethod.GET)
-    @ResponseStatus(HttpStatus.MOVED_PERMANENTLY)
-    public void mySmallImage(@CookieValue("player") String player, HttpServletResponse response) {
-        getSmallImage(player, response);
+        getImage(player, height, width, response);
     }
 
     @Override
@@ -58,39 +48,20 @@ public class PlayerImageController implements PlayerImageService, ServerControll
     @RequestMapping(value = PLAYER_IMAGE, method = RequestMethod.GET)
     @ResponseStatus(HttpStatus.MOVED_PERMANENTLY)
     public void getImage(
-        @PathVariable("player") String player, HttpServletResponse response) {
+        @PathVariable("player") String player,
+        @RequestParam(value = "height", defaultValue = "60") int height,
+        @RequestParam(value = "width", defaultValue = "60") int width,
+        HttpServletResponse response) {
         try {
             // Step 1. Extracting player image redirect
             PlayerImageRedirect imageRedirect = imageRedirectRepository.findOne(player);
             if(imageRedirect != null) {
                 // Case 1. Player image redirect exists
-                String redirect = imageRedirect.getRedirect();
+                String redirect = imageRedirect.
+                    getRedirect().
+                    replace("{height}", Integer.toString(height)).
+                    replace("{width}", Integer.toString(width));
                 // Sending redirect as a Response
-                response.sendRedirect(redirect);
-            } else {
-                // Case 2. No redirect exists returning 404 error
-                response.sendError(404);
-            }
-        } catch (IOException ioe) {
-            throw new RuntimeException(ioe);
-        }
-    }
-
-    @Override
-    public byte[] getSmallImage(String player) {
-        return new byte[0];
-    }
-
-    @RequestMapping(value = PLAYER_IMAGE_SMALL, method = RequestMethod.GET)
-    @ResponseStatus(HttpStatus.MOVED_PERMANENTLY)
-    public void getSmallImage(@PathVariable("player") String player, HttpServletResponse response) {
-        try {
-            // Step 1. Extracting player image redirect
-            PlayerImageRedirect imageRedirect = imageRedirectRepository.findOne(player);
-            if (imageRedirect != null) {
-                // Case 1. Player image redirect exists
-                String redirect = imageRedirect.getSmallImage();
-                // Step 2. Sending redirect as a Response
                 response.sendRedirect(redirect);
             } else {
                 // Case 2. No redirect exists returning 404 error

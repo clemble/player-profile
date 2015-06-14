@@ -19,7 +19,7 @@ public class PlayerImageChangedEventListener implements SystemEventListener<Syst
     @Override
     public void onEvent(SystemPlayerImageChangedEvent event) {
         // Step 1. Updating image redirect
-        imageRedirectRepository.save(new PlayerImageRedirect(event.getPlayer(), event.getRedirect(), event.getSmallImage()));
+        imageRedirectRepository.save(new PlayerImageRedirect(event.getPlayer(), event.getRedirect()));
     }
 
     @Override

@@ -13,13 +13,11 @@ public class PlayerImageRedirect implements PlayerAware {
     @Id
     final private String player;
     final private String redirect;
-    final private String smallImage;
 
     @JsonCreator
-    public PlayerImageRedirect(@JsonProperty(PLAYER) String player, @JsonProperty("redirect") String redirect, @JsonProperty("smallImage") String smallImage) {
+    public PlayerImageRedirect(@JsonProperty(PLAYER) String player, @JsonProperty("redirect") String redirect) {
         this.player = player;
         this.redirect = redirect;
-        this.smallImage = smallImage;
     }
 
     public String getPlayer() {
@@ -28,10 +26,6 @@ public class PlayerImageRedirect implements PlayerAware {
 
     public String getRedirect() {
         return redirect;
-    }
-
-    public String getSmallImage() {
-        return smallImage;
     }
 
     @Override
@@ -57,4 +51,5 @@ public class PlayerImageRedirect implements PlayerAware {
     public String toString() {
         return "player:image:" + player + ':' + redirect;
     }
+
 }
